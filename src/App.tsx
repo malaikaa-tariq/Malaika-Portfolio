@@ -425,7 +425,7 @@ function App() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/malaika-tariq-b36155354/"
+              href="https://www.linkedin.com/in/malaika-b36155354/"
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-[#facc15] hover:text-[#facc15]"
@@ -461,29 +461,29 @@ function App() {
                   aria-label="Close menu overlay"
                 />
 
-                <aside className="relative h-full w-[82%] max-w-[320px] border-r border-white/10 bg-[#151515] p-6 shadow-2xl">
-                  <div className="mb-8 flex items-center justify-between">
-                    <h3 className="text-xl font-bold text-white">Menu</h3>
+                <aside className="relative h-full w-[78%] max-w-[290px] overflow-y-auto border-r border-white/10 bg-[#151515] px-4 py-5 shadow-2xl">
+                  <div className="mb-5 flex items-center justify-between">
+                    <h3 className="text-lg font-bold text-white">Menu</h3>
 
                     <button
                       type="button"
                       onClick={() => setIsMenuOpen(false)}
-                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-xl text-white/70"
+                      className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-lg text-white/70"
                       aria-label="Close menu"
                     >
                       ×
                     </button>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-2 pb-6">
                     {navItems.map((item) => (
                       <a
                         key={item}
                         href={`#${item.toLowerCase()}`}
                         onClick={() => setIsMenuOpen(false)}
-                        className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#202020] px-5 py-4 text-sm font-bold text-white/75 transition hover:border-[#facc15] hover:text-[#facc15]"
+                        className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#202020] px-4 py-3 text-sm font-bold text-white/75 transition hover:border-[#facc15] hover:text-[#facc15]"
                       >
-                        <span className="text-[#facc15]">◆</span>
+                        <span className="text-xs text-[#facc15]">◆</span>
                         {item}
                       </a>
                     ))}
@@ -776,7 +776,7 @@ function App() {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/malaika-tariq-b36155354/"
+                  href="https://www.linkedin.com/in/malaika-b36155354/"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full border border-white/15 px-7 py-3 text-center text-sm font-bold text-white transition hover:border-[#60a5fa] hover:text-[#60a5fa]"
