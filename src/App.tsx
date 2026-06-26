@@ -1,3 +1,4 @@
+import { useState } from "react"
 import type { IconType } from "react-icons"
 import {
   FaHtml5,
@@ -30,6 +31,18 @@ import {
   FaStore,
   FaCommentDots,
 } from "react-icons/fa"
+
+const navItems = [
+  "About",
+  "Skills",
+  "Experience",
+  "Education",
+  "Projects",
+  "Marketing",
+  "Volunteering",
+  "Certifications",
+  "Contact",
+]
 
 const developerSkills = [
   { name: "HTML5", icon: FaHtml5 },
@@ -362,6 +375,8 @@ const certifications = [
 ]
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <main className="min-h-screen bg-[#111111] px-3 py-4 text-white sm:px-5 md:px-8">
       <div className="mx-auto grid w-full max-w-7xl items-start gap-6 lg:grid-cols-[340px_minmax(0,1fr)] xl:grid-cols-[360px_minmax(0,1fr)]">
@@ -410,7 +425,7 @@ function App() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/malaika-b36155354/"
+              href="https://www.linkedin.com/in/malaika-tariq-b36155354/"
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-[#facc15] hover:text-[#facc15]"
@@ -421,27 +436,74 @@ function App() {
         </aside>
 
         <section className="min-w-0 w-full max-w-full rounded-[1.5rem] border border-white/10 bg-[#202020] p-4 shadow-2xl sm:p-6 md:rounded-[2rem] md:p-10">
-          <nav className="sticky top-3 z-50 mb-10 rounded-2xl border border-white/10 bg-[#111111]/95 p-2 shadow-xl backdrop-blur md:rounded-3xl md:p-3">
-            <div className="flex gap-2 overflow-x-auto pb-1 md:grid md:grid-cols-5 md:overflow-visible xl:grid-cols-9">
-              {[
-                "About",
-                "Skills",
-                "Experience",
-                "Education",
-                "Projects",
-                "Marketing",
-                "Volunteering",
-                "Certifications",
-                "Contact",
-              ].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="min-w-fit rounded-xl px-4 py-3 text-center text-xs font-bold text-white/65 transition hover:bg-[#facc15] hover:text-black md:min-w-0 md:rounded-2xl md:px-3"
-                >
-                  {item}
-                </a>
-              ))}
+          <nav className="sticky top-3 z-50 mb-10">
+            <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-[#111111]/95 px-4 py-3 shadow-xl backdrop-blur md:hidden">
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen(true)}
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-2xl text-white/80"
+                aria-label="Open menu"
+              >
+                ☰
+              </button>
+
+              <p className="text-sm font-bold text-[#facc15]">
+                Malaika Portfolio
+              </p>
+            </div>
+
+            {isMenuOpen && (
+              <div className="fixed inset-0 z-[999] md:hidden">
+                <button
+                  type="button"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="absolute inset-0 bg-black/70"
+                  aria-label="Close menu overlay"
+                />
+
+                <aside className="relative h-full w-[82%] max-w-[320px] border-r border-white/10 bg-[#151515] p-6 shadow-2xl">
+                  <div className="mb-8 flex items-center justify-between">
+                    <h3 className="text-xl font-bold text-white">Menu</h3>
+
+                    <button
+                      type="button"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-xl text-white/70"
+                      aria-label="Close menu"
+                    >
+                      ×
+                    </button>
+                  </div>
+
+                  <div className="space-y-3">
+                    {navItems.map((item) => (
+                      <a
+                        key={item}
+                        href={`#${item.toLowerCase()}`}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#202020] px-5 py-4 text-sm font-bold text-white/75 transition hover:border-[#facc15] hover:text-[#facc15]"
+                      >
+                        <span className="text-[#facc15]">◆</span>
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                </aside>
+              </div>
+            )}
+
+            <div className="hidden rounded-3xl border border-white/10 bg-[#111111]/95 p-3 shadow-xl backdrop-blur md:block">
+              <div className="grid grid-cols-5 gap-2 xl:grid-cols-9">
+                {navItems.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="rounded-2xl px-3 py-3 text-center text-xs font-bold text-white/65 transition hover:bg-[#facc15] hover:text-black"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
             </div>
           </nav>
 
@@ -714,7 +776,7 @@ function App() {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/malaika-b36155354/"
+                  href="https://www.linkedin.com/in/malaika-tariq-b36155354/"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full border border-white/15 px-7 py-3 text-center text-sm font-bold text-white transition hover:border-[#60a5fa] hover:text-[#60a5fa]"
